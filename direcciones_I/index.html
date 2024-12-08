@@ -1,0 +1,51 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normalizador de Direcciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="formularioDireccion" class="border p-4 rounded">
+            <h2 class="mb-4">Normalizador de Direcciones</h2>
+
+            <div id="muteControl">
+                <label for="checkboxInput">Muteado</label>
+                <input type="checkbox" id="checkboxInput">
+            </div>
+        
+            <!-- Selección del tipo de entrada -->
+            <div class="mb-3">
+                <label class="form-label">Seleccione el formato de entrada</label>
+                <select id="formatoEntrada" class="form-select" onchange="actualizarFormulario()">
+                    <option value="calle_altura">Calle Altura, Partido</option>
+                    <option value="calle_y_calle">Calle y Calle, Partido</option>
+                    <option value="lat_lng">Latitud y Longitud</option>
+                </select>
+            </div>
+
+            <!-- Campos dinámicos según selección -->
+            <div id="camposEntrada"></div>
+
+            <!-- Botones -->
+            <button type="button" class="btn btn-primary" onclick="buscarDireccion()">Buscar</button>
+            <button type="reset" class="btn btn-secondary" onclick="borrarCampos()">Borrar</button>
+            <button id="obtenerUbicacion" class="btn btn-primary" onclick="obtenerUbicacionActual()">Obtener Ubicación Actual</button>
+
+        </form>
+
+        <div id="resultado" class="mt-4 border p-4 rounded">
+            <h3>Dirección Normalizada:</h3>
+            <p id="mensajeResultado">Aún no se ha realizado una búsqueda.</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/js/normalizado.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

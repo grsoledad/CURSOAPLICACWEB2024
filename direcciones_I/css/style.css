@@ -1,0 +1,14 @@
+#muteControl {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#muteControl label {
+    margin-right: 10px;
+}
+
+#muteControl input {
+    width: 20px;
+    height: 20px;
+}
